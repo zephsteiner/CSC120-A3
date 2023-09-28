@@ -50,7 +50,7 @@ See ya!
 
 Your program should be able to mirror the following sets of words (at minimum):
 * I -> you
-* me -> you
+* me -> you 
 * am -> are
 * you -> I
 * my -> your

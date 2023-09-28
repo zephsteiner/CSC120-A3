@@ -3,10 +3,18 @@ import java.util.Scanner;
 
 class Conversation {
 
+
+  /**
+   * Takes in a string and scans it for certain words, which it then edits
+   * if they are found. 
+   * 
+   * @param  s          any string
+   * @return words_out  the interpreted string
+   */
   public static String interpretPhrase(String s) {
     String[] orig = new String[]{"I",  "you", "You", "my",   "My",   "your", "Your", "are", "Are", "am",  "Am",  "me",  "Me", "I'm"};
     String[] mirrors = new String[]{"you", "I",  "I",   "your", "Your", "my",   "My",   "am",  "Am",  "are", "Are", "you", "You", "You're"};
-    String[] words = new String[20];
+    String[] words = new String[40];
     words = s.split(" ");
     for (int i = 0; i < words.length; i++) {
       for (int k = 0; k < orig.length; k++) {
@@ -26,7 +34,16 @@ class Conversation {
 
     Scanner input = new Scanner(System.in);
     System.out.print("How many rounds of conversation are you feeling? ");
-    int num_rounds = input.nextInt();
+    int num_rounds = 0;
+    while (input.hasNext()) {
+      if (input.hasNextInt()) {
+        num_rounds = input.nextInt();
+      }
+      else {
+        System.out.println("Guess you don't want to talk :(");
+        System.exit(0);
+      }
+    }
     input.nextLine();
     String transcript[] = new String[(2*(num_rounds)+2)];
     transcript[0] = "What's on your mind?";

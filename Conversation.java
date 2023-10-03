@@ -34,16 +34,7 @@ class Conversation {
 
     Scanner input = new Scanner(System.in);
     System.out.print("How many rounds of conversation are you feeling? ");
-    int num_rounds = 0;
-    while (input.hasNext()) {
-      if (input.hasNextInt()) {
-        num_rounds = input.nextInt();
-      }
-      else {
-        System.out.println("Guess you don't want to talk :(");
-        System.exit(0);
-      }
-    }
+    int num_rounds = input.nextInt();
     input.nextLine();
     String transcript[] = new String[(2*(num_rounds)+2)];
     transcript[0] = "What's on your mind?";
